@@ -76,4 +76,4 @@ const GetCashOffer = () => {
     )
 }
 
-export default GetCashOffer
+export default GetCashOffer;

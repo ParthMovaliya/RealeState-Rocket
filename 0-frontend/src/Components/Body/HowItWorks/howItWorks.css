@@ -1,0 +1,29 @@
+.page-title {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.steps-heaing {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.step {
+  display: flex;
+}
+
+.step-img {
+  display: flex;
+  align-items: center;
+}
+
+.arrow-info {
+  display: flex;
+}
+
+.step-arrow {
+  display: flex;
+  align-items: center;
+}

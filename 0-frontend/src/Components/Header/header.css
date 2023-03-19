@@ -1,5 +1,215 @@
-.header {
+/* .header {
   height: 10vh;
   background-color: blue;
   color: white;
+} */
+
+/* header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 2rem;
+  background-color: var(--mainColor);
+  color: var(--textColor);
+}
+
+nav a {
+  margin: 0 1rem;
+  color: var(--textColor);
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: var(--secondaryColor);
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--textColor);
+  visibility: hidden;
+  opacity: 0;
+  font-size: 1.8rem;
+}
+
+header div,
+nav {
+  display: flex;
+  align-items: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  header .nav-btn {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  header nav {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    background-color: var(--mainColor);
+    transition: 1s;
+  }
+
+  header .responsive_nav {
+    transform: translateY(100vh);
+  }
+
+  nav .nav-close-btn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+  }
+
+  nav a {
+    font-size: 1.5rem;
+  }
+} */
+
+/* =========LOGO========= */
+.logo {
+  height: 5.5rem;
+  cursor: pointer;
+}
+
+/* ========Active Link========= */
+.active {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: red;
+}
+
+.indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: rgb(255, 0, 0);
+}
+
+.hidden-indicator {
+  visibility: hidden;
+}
+
+/* ====================== */
+
+nav {
+  height: 15vh;
+  background: whitesmoke;
+  padding: 0px 4rem;
+}
+.seen {
+  display: flex;
+  flex-direction: column;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: row;
+  height: 15vh;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: auto;
+  font-size: 1.2rem;
+  gap: 1rem;
+  /* margin-right: 3rem; */
+}
+
+.navLink {
+  color: black;
+  text-decoration: none;
+}
+
+.title {
+  color: white;
+  font-size: 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease-in-out;
+  position: absolute;
+  left: 0%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.navbar_content {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.hoverClr:hover {
+  color: red;
+}
+
+.main {
+  padding: 0px 4rem;
+}
+
+/* -----------------------Media Queries(MD)----------------------- */
+@media screen and (max-width: 1024px) {
+  nav {
+    position: relative;
+  }
+  .lines {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+  }
+  .title {
+    transform: translateY(-30%);
+  }
+  .line {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+  }
+  .title {
+    top: 32px;
+  }
+  .reTitle {
+    font-size: 2.2rem;
+    transition: all 0.5s ease-in-out;
+  }
+  .hamburger {
+    position: fixed;
+    background: #5b78c7;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    clip-path: circle(100px at 95% -10%);
+    -webkit-clip-path: circle(100px at 90% -10%);
+    transition: all 1s ease-out;
+    z-index: 999;
+    font-size: 1.7rem;
+    justify-content: center;
+    gap: 5%;
+  }
+  .open {
+    clip-path: circle(1800px at 90% -10%);
+    -webkit-clip-path: circle(1800px at 90% -10%);
+  }
+}
+
+/* -----------------------Media Queries(SM)----------------------- */
+@media screen and (max-width: 600px) {
 }

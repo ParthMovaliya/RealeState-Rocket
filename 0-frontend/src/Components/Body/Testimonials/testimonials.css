@@ -1,0 +1,58 @@
+.client-testimonials {
+  margin-top: 1rem;
+}
+
+.testis {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.inner-testi {
+  width: 44vw;
+  border: 1px solid black;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 1rem;
+}
+
+.client-name {
+  display: flex;
+  justify-content: end;
+  padding-right: 10px;
+}
+
+.big-inner {
+  display: flex;
+  flex-direction: column;
+  width: 89vw;
+  border: 1px solid green;
+  margin: 0px auto;
+  padding: 10px;
+  border-radius: 1rem;
+  margin-bottom: 20px;
+}
+
+.testi-hvr {
+  position: relative;
+  transition: all 0.5s ease-in-out;
+}
+
+.testi-hvr:hover {
+  box-shadow: 0px 0px 10px tomato;
+  transform: scale(1.01);
+}
+
+/* ==============MediaQuery============== */
+@media screen and (max-width: 600px) {
+  .testis {
+    flex-direction: column;
+  }
+  .inner-testi {
+    width: 90vw;
+    margin: 0px auto;
+  }
+  .testi-1-1 {
+    margin-top: 20px;
+  }
+}

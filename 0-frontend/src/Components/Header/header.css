@@ -76,18 +76,17 @@ nav {
   color: red;
 }
 
+/* ====================Main==================== */
+
 .child {
   z-index: -1;
-}
-/* ====================Main==================== */
-.main {
-  margin-bottom: 7rem;
 }
 
 /* ===============Footer=============== */
 
 .footer {
-  padding: 3rem 0px 2rem;
+  margin-top: 10vmax;
+  padding: 0rem 0px 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,15 +97,16 @@ nav {
 }
 
 .footer-contact {
-  position: absolute;
+  position: relative;
   display: flex;
   width: 90vw;
   justify-content: space-between;
-  background-color: tomato;
+  /* background-color: tomato; */
+  background-color: rgb(164, 12, 12);
   padding: 10px 10px;
   color: white;
   margin: 0% auto;
-  bottom: 6rem;
+  bottom: 3rem;
 }
 
 .left-text {
@@ -189,8 +189,48 @@ nav {
     -webkit-clip-path: circle(1800px at 90% -10%);
     z-index: 1000;
   }
+  .left-text {
+    font-size: 1.5rem;
+  }
+  .rifgt-call-info {
+    font-size: 1.5rem;
+  }
+  .right-call-number {
+    font-size: 2rem;
+  }
 }
 
 /* -----------------------Media Queries(SM)----------------------- */
 @media screen and (max-width: 600px) {
+  .footer-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  .footer-contact {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-text {
+    font-size: 1.2rem;
+    justify-content: center;
+    align-items: center;
+  }
+  .left-text-remain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .right-text {
+    margin-top: 1rem;
+  }
+  .rifgt-call-info {
+    font-size: 1rem;
+  }
+  .right-call-number {
+    font-size: 1.8rem;
+  }
 }

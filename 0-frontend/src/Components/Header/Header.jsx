@@ -99,21 +99,23 @@ const Header = ({ children }) => {
 
             <div className="footer">
                 <div className="footer-contact">
-                    <div className="left-text">READY TO SELL? GET A NO OBLIGATION<br /> CAHS OFFER IN MINUTES!</div>
+                    <div className="left-text">READY TO SELL? GET A NO OBLIGATION
+                        <div className="left-text-remain">CAHS OFFER IN MINUTES!</div>
+                    </div>
                     <div className="right-text">
                         <div className="rifgt-call-info">CAALL/TEXT US NOW</div>
                         <div className="right-call-number">678.538.6228</div>
                     </div>
                 </div>
                 <div className="footer-menu">
-                    |{
+                    {
                         footerData.map((link) => {
                             //const isActive = location.pathname === link.to  ${isActive && "active"}
                             return (
                                 <>
                                     <NavLink className="navLink-footer" to={link.to} key={link.key} >
                                         <div className="">{link.div}</div>
-                                    </NavLink> |
+                                    </NavLink>
                                 </>
                             )
                         })

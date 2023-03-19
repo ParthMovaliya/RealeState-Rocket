@@ -27,19 +27,19 @@ let transporter = nodemailer.createTransport({
     },
 });
 
-let mailOptions = {
-    from: '"Parth Movaliya 👻" <dummy.parth55@gmail.com>', // sender address
-    to: "parthmovaliya55@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>", // html body
-};
+// let mailOptions = {
+//     from: '"Parth Movaliya 👻" <dummy.parth55@gmail.com>', // sender address
+//     to: "parthmovaliya55@gmail.com", // list of receivers
+//     subject: "Hello ✔", // Subject line
+//     text: "Hello world?", // plain text body
+//     html: "<b>Hello world?</b>", // html body
+// };
 
 app.post("/api/v1/get-a-cash-offer", async (req, res) => {
     await transporter.sendMail(
         {
             from: "dummy.parth55@gmail.com", // sender address
-            to: req.body.email, // list of receivers
+            to: "dummy.parth55@gmail.com", // list of receivers
             subject: "Property ✔", // Subject line
 
             text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email} Phone Number: ${req.body.phoneNumber} Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}`, // plain text body

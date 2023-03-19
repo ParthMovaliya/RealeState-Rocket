@@ -51,7 +51,7 @@ import React, { useState } from 'react'
 import "./header.css"
 import { NavLink, useLocation } from "react-router-dom"
 import logo from "../Images/final-hd.png"
-import { headerData } from '../../Data/headerData'
+import { headerData, footerData } from '../../Data/headerData'
 import { BiChevronsUp } from "react-icons/bi"
 
 const Header = ({ children }) => {
@@ -59,7 +59,9 @@ const Header = ({ children }) => {
     const [isOpen, setOpen] = useState(false);
     const changeOpen = () => setOpen(!isOpen);
     const location = useLocation();
-
+    isOpen
+        ? (document.body.style.overflow = "hidden")
+        : (document.body.style.overflow = "auto");
     return (
         <div>
             <nav>
@@ -90,8 +92,36 @@ const Header = ({ children }) => {
                     </div>
                 </div>
             </nav >
+
             <div className='child'>
                 <main className="main">{children}</main>
+            </div>
+
+            <div className="footer">
+                <div className="footer-contact">
+                    <div className="left-text">READY TO SELL? GET A NO OBLIGATION<br /> CAHS OFFER IN MINUTES!</div>
+                    <div className="right-text">
+                        <div className="rifgt-call-info">CAALL/TEXT US NOW</div>
+                        <div className="right-call-number">678.538.6228</div>
+                    </div>
+                </div>
+                <div className="footer-menu">
+                    |{
+                        footerData.map((link) => {
+                            //const isActive = location.pathname === link.to  ${isActive && "active"}
+                            return (
+                                <>
+                                    <NavLink className="navLink-footer" to={link.to} key={link.key} >
+                                        <div className="">{link.div}</div>
+                                    </NavLink> |
+                                </>
+                            )
+                        })
+                    }
+                </div>
+                <div className="copy-right">
+                    Copyright © {new Date().getFullYear()} RealeState Rocket
+                </div>
             </div>
         </div >
     )

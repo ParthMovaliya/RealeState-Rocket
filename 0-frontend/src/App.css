@@ -1,1 +1,21 @@
+.page-title {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  background-image: url("./Components/Images/cover_image.png");
+}
 
+.page-title > p {
+  margin: 10px 0px;
+  padding: 0px 10px;
+  font-weight: 900;
+  color: white;
+  border: 1px solid white;
+}
+
+.steps-heading {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0rem 3rem;
+}

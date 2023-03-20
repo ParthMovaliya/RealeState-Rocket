@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import React from 'react'
+import { useSelector } from "react-redux";
 
 import "./App.css"
 import Home from './Components/Body/Home/Home'
@@ -13,25 +14,29 @@ import Questions from "./Components/Body/Questions/Questions"
 import About from "./Components/Body/About/About"
 import Testimonials from "./Components/Body/Testimonials/Testimonials"
 import Contact from "./Components/Body/Contact/Contact"
+import Loading from "./Components/Loading/Loading";
 
 const App = () => {
+  const { loading } = useSelector(state => state.sends)
 
   return (
     <div>
       <Router>
         <Header>
-          <Routes >
-            <Route path='/' element={<Home />} />
-            <Route path='/get-a-cash-offer' element={<GetCashOffer />} />
-            <Route path='/how-it-works' element={<HowItWorks />} />
-            {/* <Route path='/buyers' element={<Buyers />} />
+          {loading ? <Loading /> :
+            <Routes >
+              <Route path='/' element={<Home />} />
+              <Route path='/get-a-cash-offer' element={<GetCashOffer />} />
+              <Route path='/how-it-works' element={<HowItWorks />} />
+              {/* <Route path='/buyers' element={<Buyers />} />
             <Route path='/landers' element={<Landers />} />
             <Route path='/past-sales' element={<PastSales />} /> */}
-            <Route path='/questions' element={<Questions />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/testimonials' element={<Testimonials />} />
-            <Route path='/contact' element={<Contact />} />
-          </Routes>
+              <Route path='/questions' element={<Questions />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/testimonials' element={<Testimonials />} />
+              <Route path='/contact' element={<Contact />} />
+            </Routes>
+          }
         </Header>
       </Router>
     </div>

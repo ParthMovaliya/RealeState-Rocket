@@ -18,8 +18,10 @@
 
 .client-name {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding-right: 10px;
+  font-weight: 900;
+  font-size: 1.15rem;
 }
 
 .big-inner {

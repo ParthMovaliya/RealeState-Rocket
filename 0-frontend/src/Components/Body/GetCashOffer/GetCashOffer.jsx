@@ -1,28 +1,31 @@
-import "./getCashOffer.css"
 import React from 'react'
 import { Col, Form, Input, message, Row } from "antd"
 import axios from "axios"
-
+import { useDispatch } from "react-redux"
+import { showLoading, hideLoading } from '../../../redux/features/sendSlice'
+import "./getCashOffer.css"
 
 const GetCashOffer = () => {
+    const dispatch = useDispatch();
     const onFinishHandler = async (values) => {
+        dispatch(showLoading());
         try {
             const res = await axios.post("/api/v1/get-a-cash-offer", values);
+            dispatch(hideLoading());
             if (res.data.success) {
                 message.success(res.data.message);
             } else {
                 message.error(res.data.message);
             }
         } catch (error) {
+            dispatch(hideLoading());
             console.log(error);
             message.error("Somethig Went Wrong");
         }
-
-        // console.log(values);
-        // message.success("Message Sent Successful")
     }
     return (
         <>
+            <div className='page-title'><p>GET A CASH OFFER</p></div>
             <div className='getCashOffer'>
                 <Form onFinish={onFinishHandler} layout="vertical" >
                     <Row gutter={20}>

@@ -2,7 +2,10 @@ import React from 'react'
 
 const Questions = () => {
     return (
-        <div>Questions</div>
+        <>
+            <div className='page-title'><p>QUESTIONS</p></div>
+            <div>Questions</div>
+        </>
     )
 }
 

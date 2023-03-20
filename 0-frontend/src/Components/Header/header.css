@@ -7,9 +7,8 @@
 
 /* ========Active Link========= */
 .active {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: red;
+  /* font-weight: 600; */
+  color: rgb(164, 12, 12);
 }
 
 .indicator {
@@ -103,7 +102,7 @@ nav {
   justify-content: space-between;
   /* background-color: tomato; */
   background-color: rgb(164, 12, 12);
-  padding: 10px 10px;
+  padding: 2vmax 2vmax;
   color: white;
   margin: 0% auto;
   bottom: 3rem;
@@ -112,6 +111,7 @@ nav {
 .left-text {
   font-size: 2.5rem;
   font-weight: 600;
+  width: 60vw;
 }
 
 .rifgt-call-info {
@@ -119,7 +119,7 @@ nav {
 }
 
 .right-call-number {
-  font-size: 3rem;
+  font-size: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,6 +143,11 @@ nav {
 
 /* -----------------------Media Queries(MD)----------------------- */
 @media screen and (max-width: 1024px) {
+  .active {
+    font-weight: 600;
+    color: rgb(164, 12, 12);
+  }
+
   nav {
     position: relative;
   }
@@ -183,14 +188,23 @@ nav {
     font-size: 1.7rem;
     justify-content: center;
     gap: 1%;
+    padding-right: 0rem;
   }
   .open {
     clip-path: circle(1800px at 90% -10%);
     -webkit-clip-path: circle(1800px at 90% -10%);
     z-index: 1000;
   }
+  .navLink {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .indicator {
+    rotate: 90deg;
+  }
   .left-text {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    width: 50vw;
   }
   .rifgt-call-info {
     font-size: 1.5rem;
@@ -208,6 +222,7 @@ nav {
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
+    gap: 4px;
   }
   .footer-contact {
     flex-direction: column;
@@ -215,11 +230,12 @@ nav {
     align-items: center;
   }
   .left-text {
+    width: 60vw;
     font-size: 1.2rem;
     justify-content: center;
     align-items: center;
   }
-  .left-text-remain {
+  .left-text > p {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,4 +1,6 @@
 .getCashOffer {
-  min-height: 80vh;
-  padding: 20px;
+  /* min-height: 80vh; */
+  width: 90vw;
+  padding: 20px 0px;
+  margin: 0px auto;
 }

@@ -1,0 +1,16 @@
+.rocket-container {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  flex-direction: column;
+}
+
+.rocket {
+  width: 20rem;
+}
+
+.sending-text {
+  font-size: 2rem;
+}

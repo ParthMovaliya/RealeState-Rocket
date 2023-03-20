@@ -1,0 +1,17 @@
+.home {
+  margin: 0px auto;
+}
+
+.home-front {
+  position: relative;
+  background-image: url("../../Images//home-cover.png");
+  height: 80vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+}
+
+.top-contact {
+  border: 1px solid black;
+  display: inline-block;
+}

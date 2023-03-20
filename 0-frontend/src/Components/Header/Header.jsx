@@ -1,52 +1,3 @@
-// import React from 'react'
-// import "./header.css"
-
-// const Header = () => {
-//     return (
-//         <div className='header'>Header</div>
-//     )
-// }
-
-// export default Header
-
-// import "./header.css"
-// import { useRef } from "react";
-// import { FaBars, FaTimes } from "react-icons/fa";
-
-// function Header() {
-//     const navRef = useRef();
-
-//     const showNavbar = () => {
-//         navRef.current.classList.toggle(
-//             "responsive_nav"
-//         );
-//     };
-
-//     return (
-//         <header>
-//             <h3>LOGO</h3>
-//             <nav ref={navRef}>
-//                 <a href="/">Home</a>
-//                 <a href="/GetCashOffer">My work</a>
-//                 <a href="/#">Blog</a>
-//                 <a href="/#">About me</a>
-//                 <button
-//                     className="nav-btn nav-close-btn"
-//                     onClick={showNavbar}>
-//                     <FaTimes />
-//                 </button>
-//             </nav>
-//             <button
-//                 className="nav-btn"
-//                 onClick={showNavbar}>
-//                 <FaBars />
-//             </button>
-//         </header>
-//     );
-// }
-
-// export default Header;
-
 import React, { useState } from 'react'
 import "./header.css"
 import { NavLink, useLocation } from "react-router-dom"
@@ -59,9 +10,9 @@ const Header = ({ children }) => {
     const [isOpen, setOpen] = useState(false);
     const changeOpen = () => setOpen(!isOpen);
     const location = useLocation();
-    isOpen
-        ? (document.body.style.overflow = "hidden")
-        : (document.body.style.overflow = "auto");
+    // isOpen
+    //     ? (document.body.style.overflow = "hidden")
+    //     : (document.body.style.overflow = "auto");
     return (
         <div>
             <nav>
@@ -99,12 +50,13 @@ const Header = ({ children }) => {
 
             <div className="footer">
                 <div className="footer-contact">
-                    <div className="left-text">READY TO SELL? GET A NO OBLIGATION
-                        <div className="left-text-remain">CAHS OFFER IN MINUTES!</div>
+                    <div className="left-text"><p>READY TO SELL? GET A NO OBLIGATION CASH OFFER IN MINUTES!</p>
+                        {/* <div className="left-text-remain"></div> */}
                     </div>
                     <div className="right-text">
-                        <div className="rifgt-call-info">CAALL/TEXT US NOW</div>
-                        <div className="right-call-number">678.538.6228</div>
+                        <div className="rifgt-call-info">CALL/TEXT US NOW</div>
+                        <div className="right-call-number">786.250.1110</div>
+                        <div className="right-call-number">786.471.7409</div>
                     </div>
                 </div>
                 <div className="footer-menu">

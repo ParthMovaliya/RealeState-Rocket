@@ -4,8 +4,9 @@ import "./testimonials.css"
 const Testimonials = () => {
     return (
         <>
-            <div className='page-title'><p>CLIENT TESTIMONIALS</p></div>
+            <div className='page-title'><p>TESTIMONIALS</p></div>
             <div className="client-testimonials">
+                <div className="steps-heading">CLIENT REVIEWS</div>
                 <div className="testi-1 testis">
                     <div className="testi-1-1 inner-testi testi-hvr">
                         <div className="client-testi">

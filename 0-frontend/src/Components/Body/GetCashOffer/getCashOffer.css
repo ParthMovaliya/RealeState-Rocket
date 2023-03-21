@@ -4,3 +4,10 @@
   padding: 20px 0px;
   margin: 0px auto;
 }
+
+.form-inside-information-label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(164, 12, 12);
+  margin-bottom: 1rem;
+}

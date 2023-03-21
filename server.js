@@ -40,7 +40,7 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
         {
             from: "dummy.parth55@gmail.com", // sender address
             to: "dummy.parth55@gmail.com", // list of receivers
-            subject: "Property ✔", // Subject line
+            subject: "Get A Cash Offer! ✔", // Subject line
 
             text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email} Phone Number: ${req.body.phoneNumber} Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}`, // plain text body
 
@@ -52,6 +52,7 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
             email:${req.body.email}<hr>Phone Number: ${req.body.phoneNumber} 
             <hr> 
             Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}
+            <hr>
             <br> 
             </p>`, // html body
         },
@@ -65,7 +66,46 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
             } else {
                 res.status(201).send({
                     success: true,
-                    message: "Mail Send!!"
+                    message: "Cash Offer Mail Send!!"
+                })
+            };
+
+        })
+})
+app.post("/api/v1/contact", async (req, res) => {
+    await transporter.sendMail(
+        {
+            from: "dummy.parth55@gmail.com", // sender address
+            to: "dummy.parth55@gmail.com", // list of receivers
+            subject: "Contact Me", // Subject line
+
+            text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
+
+            html:
+                `<p> 
+            <hr>
+            Name: ${req.body.name}
+            <hr> 
+            email: ${req.body.email}
+            <hr>
+            Phone Number: ${req.body.phoneNumber} 
+            <hr> 
+            Message: ${req.body.message}
+            <hr>
+            <br> 
+            </p>`, // html body
+        },
+        (err, info) => {
+            if (err) {
+                console.log(err);
+                res.status(500).send({
+                    success: false,
+                    message: "Mail Send Error"
+                })
+            } else {
+                res.status(201).send({
+                    success: true,
+                    message: "Contact Mail Send!!"
                 })
             };
 

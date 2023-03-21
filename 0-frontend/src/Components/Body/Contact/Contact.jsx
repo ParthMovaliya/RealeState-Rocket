@@ -5,11 +5,28 @@ import TextArea from 'antd/es/input/TextArea'
 import { GoMail } from "react-icons/go"
 import { FiPhoneCall } from "react-icons/fi"
 import logo from "../../Images/final-hd.png"
+import { useDispatch } from 'react-redux'
+import { showLoading, hideLoading } from '../../../redux/features/sendSlice'
+import axios from 'axios'
 
 
 const Contact = () => {
-    const onFinishHandler = (values) => {
-        console.log(values)
+    const dispatch = useDispatch();
+    const onFinishHandler = async (values) => {
+        dispatch(showLoading());
+        try {
+            const res = await axios.post("api/v1/contact", values);
+            dispatch(hideLoading());
+            if (res.data.success) {
+                message.success(res.data.message);
+            } else {
+                message.error(res.data.message);
+            }
+        } catch (error) {
+            dispatch(hideLoading());
+            console.log(error);
+            message.error("Somethig Went Wrong");
+        }
     }
     return (
         <>
@@ -20,16 +37,16 @@ const Contact = () => {
                     <div className="contact-info-left">
                         <p className="contact-form-title">LET'S GET STARTED!</p>
                         <Form onFinish={onFinishHandler} layout="vertical" >
-                            <Form.Item label="Your Name*" name="firstName">
+                            <Form.Item label="Your Name*" name="name">
                                 <Input type="text" required placeholder='Name' />
                             </Form.Item>
-                            <Form.Item label="Your Email*" name="firstName">
+                            <Form.Item label="Your Email*" name="eame">
                                 <Input type="email" required placeholder='Property Address' />
                             </Form.Item>
-                            <Form.Item label="Phone No." name="firstName">
+                            <Form.Item label="Phone No." name="phoneNumber">
                                 <Input type="number" required placeholder='Phone Number' />
                             </Form.Item>
-                            <Form.Item label="Message" name="firstName">
+                            <Form.Item label="Message" name="message">
                                 <TextArea rows={4} />
                             </Form.Item>
                             <div className="">

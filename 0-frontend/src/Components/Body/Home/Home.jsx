@@ -1,6 +1,6 @@
 import React from 'react'
 import "./home.css"
-import { Form, Input, message } from "antd"
+import { Form, Input } from "antd"
 
 
 const Home = () => {

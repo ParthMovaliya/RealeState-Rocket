@@ -71,8 +71,12 @@ nav {
   position: relative;
 }
 
+.hoverClr {
+  font-weight: 500;
+}
 .hoverClr:hover {
   color: red;
+  font-weight: 800;
 }
 
 /* ====================Main==================== */

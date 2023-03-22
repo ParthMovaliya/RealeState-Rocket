@@ -1,13 +1,32 @@
 import React from 'react'
 import "./about.css"
 import image from "../../Images/house_sold.jpg"
+import { motion } from "framer-motion"
+import { zoomIn } from "../../motion"
 const About = () => {
     return (
         <>
-            <div className='page-title'><p>ABOUT US</p></div>
-            <div className="steps">
-                <div className="steps-heading">About Real-Estate Rocket</div>
-                <div className='about-body'>
+            <motion.div className='page-title'
+                initial={{}}
+                animate={{}}
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            ><p>ABOUT US</p></motion.div>
+            <motion.div className="steps"
+                initial={{}}
+                animate={{}}
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            >
+                <motion.div className="steps-heading"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+                    viewport={{ once: true }}
+                >About Real-Estate Rocket</motion.div>
+                <motion.div className='about-body'
+                    variants={zoomIn("spring", 0, 1)}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                >
                     <div className="image-text">
                         <div className="about-iamge">
                             <img src={image} alt="House Sold" />
@@ -20,8 +39,8 @@ const About = () => {
                     </div>
                     <p>Our company's objective is to simplify the selling process as much as we can. We will take the time to ensure that you fully comprehend the process and offer you the assurance that selling your house to us is the appropriate decision. We don't just provide you a quick offer and some equipment to get the job done swiftly. For any questions or concerns you might have along the road, our efficient and polite team is available 24 hours a day, 7 days a week. From the very beginning to the very end,</p>
                     <p>Another source of pride for Property Jet Real Estate Solutions is that we don't impose hidden costs; the quote we present is the amount of money you receive. Property Jet Real Estate Solutions does not charge a fee to our sellers and pays the closing costs for the property.</p>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </>
     )
 }

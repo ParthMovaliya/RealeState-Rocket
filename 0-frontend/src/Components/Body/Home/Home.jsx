@@ -1,7 +1,7 @@
 import React from 'react'
 import "./home.css"
 import { Form, Input } from "antd"
-
+import { motion } from "framer-motion"
 
 const Home = () => {
     const onFinishHandler = (values) => {
@@ -10,7 +10,11 @@ const Home = () => {
     return (
         <>
             {/* <div className='page-title'><p>HOME</p></div> */}
-            <div className='home'>
+            <motion.div className='home'
+            // initial={{ width: 0 }}
+            // animate={{ width: "100%" }}
+            // exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+            >
                 <div className="home-front">
                     <div className="head-front-left">
                         <p className="head-main-title">
@@ -58,7 +62,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </>
     )
 }

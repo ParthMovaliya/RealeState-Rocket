@@ -9,7 +9,7 @@
 }
 
 .inner-testi {
-  width: 44vw;
+  width: 39.5vw;
   border: 1px solid black;
   padding: 10px;
   margin-bottom: 20px;
@@ -27,7 +27,7 @@
 .big-inner {
   display: flex;
   flex-direction: column;
-  width: 89vw;
+  width: 80vw;
   border: 1px solid green;
   margin: 0px auto;
   padding: 10px;
@@ -51,7 +51,7 @@
     flex-direction: column;
   }
   .inner-testi {
-    width: 90vw;
+    width: 86vw;
     margin: 0px auto;
   }
   .testi-1-1 {

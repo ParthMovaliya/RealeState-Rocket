@@ -2,44 +2,63 @@ import React from 'react'
 import "./questions.css"
 import logo from "../../Images/final-hd.png"
 import { BsPatchQuestion } from "react-icons/bs"
+import { motion } from "framer-motion"
 
 const Questions = () => {
     return (
         <>
-            <div className='page-title'><p>QUESTIONS</p></div>
-            <div className='questions-page'>
-                <div className="steps-heading">FAQ</div>
+            <motion.div className='page-title'
+                initial={{}}
+                animate={{}}
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            ><p>QUESTIONS</p></motion.div>
+            <motion.div className='questions-page'
+                initial={{}}
+                animate={{}}
+                exit={{ opacity: 0, transition: { duration: 0.2 } }}
+            >
+                <motion.div className="steps-heading"
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+                    viewport={{ once: true }}
+                >FAQ</motion.div>
 
-                <div className="top-all-que">
+                <motion.div className="top-all-que"
+                    initial={{ opacity: 0, y: 300 }}
+                    whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
+                    viewport={{ once: true }}
+                >
                     <div className="faq-questions">
                         <div className="faq-questoin">
-                            <p className="faq-que">
-                                1.What is real estate wholesaling and how does it differ from traditional home selling methods?
-                            </p>
-                            <p className="faq-que">
-                                2.How do Real Estate Rocket find potential buyers for the properties you are wholesaling?
-                            </p>
-                            <p className="faq-que">
-                                3.How long does it take to sell a property through Real Estate Rocket?
-                            </p>
-                            <p className="faq-que">
-                                4.What is the process for closing a deal when working with a real estate wholesaler?
-                            </p>
-                            <p className="faq-que">
-                                5.What criteria do you use to determine the value of my property?
-                            </p>
-                            <p className="faq-que">
-                                6.Do I need to make any repairs or renovations to my property before selling it to a wholesaler?
-                            </p>
-                            <p className="faq-que">
-                                7.What fees or commissions do I need to pay when working with a real estate wholesaler?
-                            </p>
-                            <p className="faq-que">
-                                8.What happens if the buyer you assign the contract to is unable to close the deal?
-                            </p>
-                            <p className="faq-que">
-                                9.How do I know if real estate wholesaling is the right option for me?
-                            </p>
+                            <div className="faq-questoin-left-all">
+                                <a href='#que-one' className="faq-que">
+                                    1.What is real estate wholesaling and how does it differ from traditional home selling methods?
+                                </a>
+                                <a href="#que-two" className="faq-que">
+                                    2.How do Real Estate Rocket find potential buyers for the properties you are wholesaling?
+                                </a>
+                                <a href="#que-three" className="faq-que">
+                                    3.How long does it take to sell a property through Real Estate Rocket?
+                                </a>
+                                <a href="#que-four" className="faq-que">
+                                    4.What is the process for closing a deal when working with a real estate wholesaler?
+                                </a>
+                                <a href="#que-five" className="faq-que">
+                                    5.What criteria do you use to determine the value of my property?
+                                </a>
+                                <a href="#que-six" className="faq-que">
+                                    6.Do I need to make any repairs or renovations to my property before selling it to a wholesaler?
+                                </a>
+                                <a href="#que-seven" className="faq-que">
+                                    7.What fees or commissions do I need to pay when working with a real estate wholesaler?
+                                </a>
+                                <a href="#que-eight" className="faq-que">
+                                    8.What happens if the buyer you assign the contract to is unable to close the deal?
+                                </a>
+                                <a href="#que-nine" className="faq-que">
+                                    9.How do I know if real estate wholesaling is the right option for me?
+                                </a>
+                            </div>
                         </div>
                         <div className="faq-right-que-image">
                             <img src={logo} alt='RealeState Rocket' className='faq-right-image' />
@@ -50,7 +69,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-one' className="full-que-question">
                                     What is real estate wholesaling and how does it differ from traditional home selling methods?
                                 </div>
                                 <div className="full-que-ans">
@@ -61,7 +80,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-two' className="full-que-question">
                                     How do Real Estate Rocket find potential buyers for the properties you are wholesaling?
                                 </div>
                                 <div className="full-que-ans">
@@ -72,7 +91,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-three' className="full-que-question">
                                     How long does it take to sell a property through Real Estate Rocket?
                                 </div>
                                 <div className="full-que-ans">
@@ -83,7 +102,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-four' className="full-que-question">
                                     What is the process for closing a deal when working with a real estate wholesaler?
                                 </div>
                                 <div className="full-que-ans">
@@ -94,7 +113,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-five' className="full-que-question">
                                     What criteria do you use to determine the value of my property?
                                 </div>
                                 <div className="full-que-ans">
@@ -105,7 +124,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-six' className="full-que-question">
                                     Do I need to make any repairs or renovations to my property before selling it to a wholesaler?
                                 </div>
                                 <div className="full-que-ans">
@@ -116,7 +135,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-seven' className="full-que-question">
                                     What fees or commissions do I need to pay when working with a real estate wholesaler?
                                 </div>
                                 <div className="full-que-ans">
@@ -127,7 +146,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-eight' className="full-que-question">
                                     What happens if the buyer you assign the contract to is unable to close the deal?
                                 </div>
                                 <div className="full-que-ans">
@@ -138,7 +157,7 @@ const Questions = () => {
                         <div className="full-question">
                             <div className="full-que-icon"><BsPatchQuestion /></div>
                             <div className="full-que-question-answer">
-                                <div className="full-que-question">
+                                <div id='que-nine' className="full-que-question">
                                     How do I know if real estate wholesaling is the right option for me?
                                 </div>
                                 <div className="full-que-ans">
@@ -147,8 +166,8 @@ const Questions = () => {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </>
     )
 }

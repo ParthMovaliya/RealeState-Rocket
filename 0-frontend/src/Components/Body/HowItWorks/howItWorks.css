@@ -1,0 +1,70 @@
+.how-it-works-page {
+  width: 80vw;
+  margin: 0px auto;
+}
+
+.how-work-step {
+  display: flex;
+}
+
+.how-work-step-iamge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-work-step-iamge > img {
+  width: 25vmax;
+}
+
+.how-work-step-information {
+  margin: auto 0px;
+}
+
+.how-it-works-right {
+  display: flex;
+  flex-direction: row;
+}
+
+.how-it-work-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* .how-work-arrow-icon {
+  font-size: 4rem;
+  aspect-ratio: 2/1;
+} */
+
+.how-work-step-info {
+  font-size: 1.5rem;
+}
+
+.how-work-step-name {
+  font-size: 2rem;
+  font-weight: 800;
+  color: rgb(164, 12, 12);
+  margin-bottom: 1rem;
+}
+
+.how-it-works-link {
+  text-decoration: none;
+  font-weight: 800;
+  color: rgb(164, 12, 12);
+}
+
+/* ==========================Media Query========================== */
+@media screen and (max-width: 1024px) {
+  .how-work-step-iamge > img {
+    width: 35vmax;
+  }
+}
+@media screen and (max-width: 600px) {
+  .how-work-step {
+    display: flex;
+    flex-direction: column;
+  }
+  .how-work-step-iamge > img {
+    width: 50vmax;
+  }
+}

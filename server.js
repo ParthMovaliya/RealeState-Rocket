@@ -14,8 +14,6 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Routs
-// app.use("/api/v1", require("./Router/mailRouter"));
 
 // ========================================Nodemailer Start========================================
 
@@ -27,13 +25,6 @@ let transporter = nodemailer.createTransport({
     },
 });
 
-// let mailOptions = {
-//     from: '"Parth Movaliya 👻" <dummy.parth55@gmail.com>', // sender address
-//     to: "parthmovaliya55@gmail.com", // list of receivers
-//     subject: "Hello ✔", // Subject line
-//     text: "Hello world?", // plain text body
-//     html: "<b>Hello world?</b>", // html body
-// };
 
 app.post("/api/v1/get-a-cash-offer", async (req, res) => {
     await transporter.sendMail(
@@ -52,6 +43,18 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
             email:${req.body.email}<hr>Phone Number: ${req.body.phoneNumber} 
             <hr> 
             Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}
+            <hr>
+            Type of Property: ${req.body.propertyType}
+            <hr>
+            Number of Bedrooms: ${req.body.numberOfBedrooms}, Number of Bathrooms: ${req.body.numberOfBathrooms} and Occupancy: ${req.body.occupancy}
+            <hr>
+            Approx SQ. Footage: ${req.body.approxSQFootafe}
+            <hr>
+            Why are you selling?: ${req.body.whySelling}
+            <hr>
+            What repairs are needed?: ${req.body.repairsNeeded}
+            <hr>
+            Other Relevant Notes: ${req.body.otherNotes}
             <hr>
             <br> 
             </p>`, // html body
@@ -113,7 +116,6 @@ app.post("/api/v1/contact", async (req, res) => {
 })
 
 // ========================================Nodemailer End==========================================
-
 
 
 app.listen(process.env.PORT, () => {

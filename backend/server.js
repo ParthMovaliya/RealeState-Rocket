@@ -8,7 +8,6 @@ const bodyParser = require("body-parser")
 //Dotenv Connect
 dotenv.config();
 
-
 //Middlerware
 app.use(express.json());
 app.use(bodyParser.json());

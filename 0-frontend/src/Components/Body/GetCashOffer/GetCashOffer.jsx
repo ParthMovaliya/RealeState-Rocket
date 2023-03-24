@@ -1,11 +1,11 @@
 import React from 'react'
 import { Col, Form, Input, message, Row, Select } from "antd"
+import TextArea from 'antd/es/input/TextArea'
 import axios from "axios"
 import { useDispatch } from "react-redux"
 import { showLoading, hideLoading } from '../../../redux/features/sendSlice'
-import "./getCashOffer.css"
-import TextArea from 'antd/es/input/TextArea'
 import { motion } from "framer-motion"
+import "./getCashOffer.css"
 
 const GetCashOffer = () => {
     const dispatch = useDispatch();
@@ -47,10 +47,6 @@ const GetCashOffer = () => {
                     initial={{ opacity: 0, x: -300 }}
                     animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
                     exit={{ opacity: 0, transition: { duration: 0.2 } }}
-                // variants={zoomIn("spring", 0, 1)}
-                // initial="hidden"
-                // whileInView="show"
-                // viewport={{ once: true }}
                 >
                     <Form onFinish={onFinishHandler} layout="vertical" className='Form'>
                         <p className="form-inside-information-label">CONTACT INFORMATION</p>
@@ -243,7 +239,13 @@ const GetCashOffer = () => {
                             </Col>
                         </Row>
                         <div className="get-a-cash-offer-button-container">
-                            <button type="submit" className='get-a-cash-offer-button'>Get a Cash Offer</button>
+                            <button type='submit' className="button-82-pushable " >
+                                <span className="button-82-shadow"></span>
+                                <span className="button-82-edge"></span>
+                                <span className="button-82-front text">
+                                    GET A CASH OFFER
+                                </span>
+                            </button>
                         </div>
                     </Form >
                 </motion.div>

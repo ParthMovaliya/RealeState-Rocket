@@ -10,9 +10,6 @@ const Header = ({ children }) => {
     const [isOpen, setOpen] = useState(false);
     const changeOpen = () => setOpen(!isOpen);
     const location = useLocation();
-    // isOpen
-    //     ? (document.body.style.overflow = "hidden")
-    //     : (document.body.style.overflow = "auto");
     return (
         <div>
             <nav>
@@ -22,7 +19,6 @@ const Header = ({ children }) => {
                     <div className="line"></div>
                 </div>
                 <div className='navbar_content'>
-                    {/* className={isOpen ? 'reTitle title' : "title"} */}
                     <NavLink className='title' to="/" key="logo">
                         <img src={logo} alt='RealeState Rocket' className='logo' />
                     </NavLink>
@@ -33,8 +29,12 @@ const Header = ({ children }) => {
                                 return (
                                     <>
                                         <NavLink className="navLink " to={link.to} key={link.key} onClick={changeOpen}>
-                                            <div className={`hoverClr ${isActive && "active"}`}>{link.div}</div>
-                                            <div className={`${isActive ? "indicator" : "hidden-indicator"}`} ><BiChevronsUp /></div>
+                                            <div key={link.key + "div1"} className={`hoverClr ${isActive && "active"}`}>
+                                                {link.div}
+                                            </div>
+                                            <div key={link.key + "div2"} className={`${isActive ? "indicator" : "hidden-indicator"}`} >
+                                                <BiChevronsUp />
+                                            </div>
                                         </NavLink>
                                     </>
                                 )
@@ -51,7 +51,6 @@ const Header = ({ children }) => {
             <div className="footer">
                 <div className="footer-contact">
                     <div className="left-text"><p>READY TO SELL? GET A NO OBLIGATION CASH OFFER IN MINUTES!</p>
-                        {/* <div className="left-text-remain"></div> */}
                     </div>
                     <div className="right-text">
                         <div className="rifgt-call-info">CALL/TEXT US NOW</div>
@@ -62,11 +61,10 @@ const Header = ({ children }) => {
                 <div className="footer-menu">
                     {
                         footerData.map((link) => {
-                            //const isActive = location.pathname === link.to  ${isActive && "active"}
                             return (
                                 <>
-                                    <NavLink className="navLink-footer" to={link.to} key={link.key} >
-                                        <div className="">{link.div}</div>
+                                    <NavLink className="navLink-footer" to={link.to} key={link.key + "footer"} >
+                                        <div key={link.key + "footerDiv"} className="">{link.div}</div>
                                     </NavLink>
                                 </>
                             )

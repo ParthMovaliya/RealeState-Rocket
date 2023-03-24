@@ -9,26 +9,16 @@ export const headerData = [
         div: "Get A Cash Offer",
         key: "get-a-cash-offer"
     },
+    {//to="/home-repair-evolution" key="home-repair-evolution" <div>Home Repair Evolution</div>
+        to: "/home-repair-evolution",
+        div: "Home Repair Evolution",
+        key: "home-repair-evolution"
+    },
     {//to="/how-it-works" key="how-it-works" <div>How It Works</div>
         to: "/how-it-works",
         div: "How It Works",
         key: "how-it-works"
     },
-    // {//to="/buyers" key="buyers" <div>Buyers</div>
-    //     to: "/buyers",
-    //     div: "Buyers",
-    //     key: "buyers"
-    // },
-    // {//to="/landers" key="landers" <div>Landers</div>
-    //     to: "/landers",
-    //     div: "Landers",
-    //     key: "landers"
-    // },
-    // {//to="/past-sales" key="past-sales" <div>Past Sales</div>
-    //     to: "/past-sales",
-    //     div: "Past Sales",
-    //     key: "past-sales"
-    // },
     {//to="/questions" key="questions" <div>Questions</div>
         to: "/questions",
         div: "Questions",
@@ -61,26 +51,16 @@ export const footerData = [
         div: "Get A Cash Offer",
         key: "fget-a-cash-offer"
     },
+    {//to="/home-repair-evolution" key="home-repair-evolution" <div>Home Repair Evolution</div>
+        to: "/home-repair-evolution",
+        div: "Home Repair Evolution",
+        key: "home-repair-evolution"
+    },
     {//to="/how-it-works" key="how-it-works" <div>How It Works</div>
         to: "/how-it-works",
         div: "How It Works",
         key: "fhow-it-works"
     },
-    // {//to="/buyers" key="buyers" <div>Buyers</div>
-    //     to: "/buyers",
-    //     div: "Buyers",
-    //     key: "buyers"
-    // },
-    // {//to="/landers" key="landers" <div>Landers</div>
-    //     to: "/landers",
-    //     div: "Landers",
-    //     key: "landers"
-    // },
-    // {//to="/past-sales" key="past-sales" <div>Past Sales</div>
-    //     to: "/past-sales",
-    //     div: "Past Sales",
-    //     key: "past-sales"
-    // },
     {//to="/questions" key="questions" <div>Questions</div>
         to: "/questions",
         div: "Questions",

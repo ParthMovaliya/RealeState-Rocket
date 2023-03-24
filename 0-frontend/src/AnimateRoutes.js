@@ -6,6 +6,7 @@ import Questions from "./Components/Body/Questions/Questions"
 import About from "./Components/Body/About/About"
 import Testimonials from "./Components/Body/Testimonials/Testimonials"
 import Contact from "./Components/Body/Contact/Contact"
+import HomeRepairEvolution from './Components/Body/HomeRepairEvolution/HomeRepairEvolution'
 
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { AnimatePresence } from "framer-motion"
@@ -17,6 +18,7 @@ const AnimateRoutes = () => {
             <Routes location={location} key={location.pathname}>
                 <Route path='/' element={<Home />} />
                 <Route path='/get-a-cash-offer' element={<GetCashOffer />} />
+                <Route path='/home-repair-evolution' element={<HomeRepairEvolution />} />
                 <Route path='/how-it-works' element={<HowItWorks />} />
                 <Route path='/questions' element={<Questions />} />
                 <Route path='/about' element={<About />} />

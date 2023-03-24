@@ -243,6 +243,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
   }
   .right-text {
     margin-top: 1rem;

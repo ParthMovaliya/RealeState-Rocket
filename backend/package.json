@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start":"node server.js",
-    "backend": "nodemon server.js",
-    "frontend":"npm start --prefix ./0-frontend",
+    "backend": "nodemon backend/server.js",
+    "frontend":"npm start --prefix ../0-frontend",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\""
   },
   "author": "",

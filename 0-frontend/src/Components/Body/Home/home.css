@@ -2,16 +2,323 @@
   margin: 0px auto;
 }
 
-.home-front {
-  position: relative;
-  background-image: url("../../Images//home-cover.png");
-  height: 80vh;
-  background-size: cover;
+.home-container-title {
+  text-align: center;
+  font-size: 2rem;
+  margin: 3rem auto 2rem;
+}
+
+.home-front-container {
+  margin-top: 2rem;
   display: flex;
   flex-direction: row;
+  background-image: url("../../Images//home-cover.png");
+  margin: 0px auto;
+  justify-content: flex-end;
 }
 
 .top-contact {
-  border: 1px solid black;
   display: inline-block;
+}
+
+.head-front-left {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  gap: 1.5rem;
+  margin-top: 5rem;
+}
+
+.head-main-title {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 900;
+}
+
+.head-sub-title {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.head-sub-last {
+  color: rgb(255, 255, 255);
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding-top: 1rem;
+  padding-left: 3rem;
+  padding-bottom: 1rem;
+  padding-right: 3rem;
+  display: inline-block;
+  background-color: rgb(164, 12, 12);
+  clip-path: polygon(95% 0, 100% 50%, 95% 100%, 0% 100%, 5% 50%, 0 0);
+  width: 60%;
+  position: relative;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.head-front-right {
+  margin-right: 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 23vw;
+}
+
+.top-contact-info {
+  background-color: rgb(164, 12, 12);
+  color: white;
+  width: 350px;
+  padding: 10px 0px 10px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.top-contact-text,
+.top-contact-number {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 10px;
+}
+
+.top-container-right-form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem 2px;
+  padding: 1rem;
+  gap: 2rem;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+}
+
+.head-form-title {
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0rem;
+  text-align: center;
+}
+.home-page-link {
+  background-color: pink;
+}
+
+.home-page-button-top {
+  position: relative;
+  border-bottom: 5px solid black;
+  width: 12vw;
+}
+.home-page-button-middle {
+  display: flex;
+  flex-direction: row;
+}
+.home-page-button-left {
+  border-left: 5px solid black;
+}
+.home-page-button-right {
+  border-left: 5px solid black;
+  height: 6vw;
+}
+.home-page-button-lower {
+  border-top: 5px solid black;
+  width: 12vw;
+}
+
+/* ==============Sell Step============ */
+
+.sell-steps-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  width: 80vw;
+  margin: 0px auto;
+}
+
+.home-sell-step-img > img {
+  width: 14vw;
+  height: 14vw;
+  /* aspect-ratio: 1/1; */
+  object-fit: cover;
+  margin: 0px auto;
+  display: flex;
+}
+
+.home-sell-step-info {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.sell-house-container-button {
+  margin: 2rem auto 1rem;
+  width: 18rem;
+  margin-bottom: 3rem;
+}
+
+/* ====================Home Testimonial/Reasons======================== */
+.home-container-alternative {
+  background-color: rgba(128, 128, 128, 0.265);
+  padding-bottom: 2rem;
+}
+
+.home-container-title-alternative {
+  padding-top: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  width: 80vw;
+  margin: 0px auto 2rem;
+}
+
+.sell-house-testimonial {
+  display: flex;
+  width: 80vw;
+  margin: 0px auto;
+}
+
+.sell-house-testimonial p {
+  font-size: 1.2rem;
+}
+
+.some-reason-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 0px auto;
+  row-gap: 2rem;
+  justify-content: space-between;
+}
+
+.reson-type {
+  background-color: rgb(164, 12, 12);
+  border: 1px solid black;
+  padding: 10px 3rem 1.9rem;
+  font-size: 1.2rem;
+  color: white;
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% 75%,
+    75% 75%,
+    75% 100%,
+    70% 75%,
+    0% 75%
+  );
+}
+
+/* ====================================Last Container=============================== */
+.home-page-last-container {
+  width: 80vw;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+/* -----------------------Media Queries(MD)----------------------- */
+@media screen and (max-width: 1024px) {
+  .home-front {
+    height: 100vh;
+  }
+  .home-front-container {
+    flex-direction: column;
+  }
+  .head-front-left {
+    padding-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+    gap: 1.5rem;
+    margin: 0px auto;
+  }
+  .head-main-title {
+    font-size: 1.5rem;
+  }
+
+  .head-sub-title {
+    font-size: 1.2rem;
+  }
+
+  .head-sub-last {
+    padding-top: 1rem;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+    padding-right: 3rem;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .head-front-right {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .top-contact-info {
+    margin-top: 0.5rem;
+    width: 80vw;
+  }
+  .top-container-right-form {
+    margin: 1rem 0px;
+    padding: 1rem;
+    gap: 0rem;
+    width: 80vw;
+  }
+  .head-form-title {
+    margin: 1rem 0rem;
+  }
+  .home-sell-step-img > img {
+    width: 20vw;
+    height: 20vw;
+  }
+  .sell-house-testimonial {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 80vw;
+    margin: 0px auto;
+  }
+  .some-reason-container {
+    row-gap: 1.5rem;
+  }
+  .reson-type {
+    padding: 10px 2rem 1.9rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* -----------------------Media Queries(SM)----------------------- */
+@media screen and (max-width: 600px) {
+  .top-contact-text,
+  .top-contact-number {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+
+  .home-sell-step-img > img {
+    width: 30vw;
+    height: 30vw;
+  }
+  .home-container-title-alternative {
+    padding-top: 2rem;
+    font-size: 1.8rem;
+    margin: 0px auto 1rem;
+  }
+  .some-reason-container {
+    row-gap: 1rem;
+  }
+  .reson-type {
+    padding: 10px 1rem 1.9rem;
+    font-size: 1rem;
+  }
 }

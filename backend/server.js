@@ -4,7 +4,6 @@ const color = require("colors");
 const app = express();
 const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser")
-const path = require("path");
 
 //Dotenv Connect
 dotenv.config();
@@ -14,20 +13,14 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//static files
-app.use(express.static(path.join(__dirname, "../0-frontend/build")));
-
-app.get("*", function (req, res) {
-    res.sendFile(path.join(__dirname, "../0-frontend/build/index.html"));
-});
 
 // ========================================Nodemailer Start========================================
 
 let transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: process.env.PORT,//Add Mail Hear
-        pass: process.env.PASSWORD,//Add Password Hear
+        user: "dummy.parth55@gmail.com",
+        pass: "ujozwkccebsrialf",
     },
 });
 
@@ -35,8 +28,8 @@ let transporter = nodemailer.createTransport({
 app.post("/api/v1/get-a-cash-offer", async (req, res) => {
     await transporter.sendMail(
         {
-            from: process.env.PORT, // Add Mail Hear
-            to: process.env.PORT, // Add Mail Hear
+            from: "dummy.parth55@gmail.com", // sender address
+            to: "dummy.parth55@gmail.com", // list of receivers
             subject: "Get A Cash Offer! ✔", // Subject line
 
             text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email} Phone Number: ${req.body.phoneNumber} Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}`, // plain text body
@@ -85,8 +78,8 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
 app.post("/api/v1/contact", async (req, res) => {
     await transporter.sendMail(
         {
-            from: process.env.PORT, // Add Mail Hear
-            to: process.env.PORT, // Add Mail Hear
+            from: "dummy.parth55@gmail.com", // sender address
+            to: "dummy.parth55@gmail.com", // list of receivers
             subject: "Contact Me", // Subject line
 
             text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
@@ -125,8 +118,8 @@ app.post("/api/v1/contact", async (req, res) => {
 app.post("/api/v1/home-repair-evolution", async (req, res) => {
     await transporter.sendMail(
         {
-            from: process.env.PORT, // Add Mail Hear
-            to: process.env.PORT, // Add Mail Hear
+            from: "dummy.parth55@gmail.com", // sender address
+            to: "dummy.parth55@gmail.com", // list of receivers
             subject: "Home REpair Evoluton", // Subject line
 
             text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
@@ -440,11 +433,7 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>Notes: ${req.body.DenNote}</td>
                 </tr>
            
-                <tr>
-                    <td><hr /></td>
-                    <td><hr /></td>
-                    <td><hr /></td>
-                </tr>
+            <hr />
             
                 <tr>
                     <th>Basement</th>

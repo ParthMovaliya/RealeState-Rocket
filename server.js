@@ -1,51 +1,86 @@
 const express = require("express");
+const cors = require("cors");
 const dotenv = require("dotenv");
 const color = require("colors");
 const app = express();
 const nodemailer = require("nodemailer");
-const bodyParser = require("body-parser")
+const bodyParser = require("body-parser");
+const path = require("path");
+
+app.use(
+  cors({
+    credentials: true,
+    origin: "https://main.d24rzhsjnmveux.amplifyapp.com",
+  })
+);
 
 //Dotenv Connect
 dotenv.config();
+
+//static files
+app.use(express.static(path.join(__dirname, "./0-frontend/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./0-frontend/build/index.html"));
+});
 
 //Middlerware
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 // ========================================Nodemailer Start========================================
 
 let transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: "dummy.parth55@gmail.com",
-        pass: "ujozwkccebsrialf",
-    },
+  service: "gmail",
+  auth: {
+    user: "utsavvasoya99@gmail.com", //Add Mail Hear
+    pass: "qjvronmfrxlcavqq", //Add Password Hear
+  },
 });
 
+app.get("/test", (req, res) => {
+  res.send("Tested ok!!!");
+});
 
 app.post("/api/v1/get-a-cash-offer", async (req, res) => {
-    await transporter.sendMail(
-        {
-            from: "dummy.parth55@gmail.com", // sender address
-            to: "dummy.parth55@gmail.com", // list of receivers
-            subject: "Get A Cash Offer! ✔", // Subject line
+  await transporter.sendMail(
+    {
+      from: "utsavvasoya99@gmail.com", // Add Mail Hear
+      to: "utsavvasoya99@gmail.com", // Add Mail Hear
+      subject: `Get A Cash Offer! ✔ ${req.body.firstName + " " + req.body.lastName
+        }`, // Subject line
 
-            text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email} Phone Number: ${req.body.phoneNumber} Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}`, // plain text body
+      text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email
+        } Phone Number: ${req.body.phoneNumber} Address:${req.body.street +
+        ", " +
+        req.body.city +
+        ", " +
+        req.body.state +
+        ", " +
+        req.body.zipCode
+        }`, // plain text body
 
-            html:
-                `<p> 
+      html: `<p> 
             <hr>
             Name: ${req.body.firstName + " " + req.body.lastName} 
             <hr> 
             email:${req.body.email}<hr>Phone Number: ${req.body.phoneNumber} 
             <hr> 
-            Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}
+            Address:${req.body.street +
+        ", " +
+        req.body.city +
+        ", " +
+        req.body.state +
+        ", " +
+        req.body.zipCode
+        }
             <hr>
             Type of Property: ${req.body.propertyType}
             <hr>
-            Number of Bedrooms: ${req.body.numberOfBedrooms}, Number of Bathrooms: ${req.body.numberOfBathrooms} and Occupancy: ${req.body.occupancy}
+            Number of Bedrooms: ${req.body.numberOfBedrooms
+        }, Number of Bathrooms: ${req.body.numberOfBathrooms
+        } and Occupancy: ${req.body.occupancy}
             <hr>
             Approx SQ. Footage: ${req.body.approxSQFootafe}
             <hr>
@@ -57,35 +92,34 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
             <hr>
             <br> 
             </p>`, // html body
-        },
-        (err, info) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send({
-                    success: false,
-                    message: "Mail Send Error"
-                })
-            } else {
-                res.status(201).send({
-                    success: true,
-                    message: "Cash Offer Mail Send!!"
-                })
-            };
-
-        })
-})
+    },
+    (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          success: false,
+          message: "Mail Send Error",
+        });
+      } else {
+        res.status(201).send({
+          success: true,
+          message: "Cash Offer Mail Send!!",
+        });
+      }
+    }
+  );
+});
 
 app.post("/api/v1/contact", async (req, res) => {
-    await transporter.sendMail(
-        {
-            from: "dummy.parth55@gmail.com", // sender address
-            to: "dummy.parth55@gmail.com", // list of receivers
-            subject: "Contact Me", // Subject line
+  await transporter.sendMail(
+    {
+      from: "utsavvasoya99@gmail.com", // Add Mail Hear
+      to: "utsavvasoya99@gmail.com", // Add Mail Hear
+      subject: "Contact Me", // Subject line
 
-            text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
+      text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
 
-            html:
-                `<p> 
+      html: `<p> 
             <hr>
             Name: ${req.body.name}
             <hr> 
@@ -97,35 +131,34 @@ app.post("/api/v1/contact", async (req, res) => {
             <hr>
             <br> 
             </p>`, // html body
-        },
-        (err, info) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send({
-                    success: false,
-                    message: "Mail Send Error"
-                })
-            } else {
-                res.status(201).send({
-                    success: true,
-                    message: "Contact Mail Send!!"
-                })
-            };
-
-        })
-})
+    },
+    (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          success: false,
+          message: "Mail Send Error",
+        });
+      } else {
+        res.status(201).send({
+          success: true,
+          message: "Contact Mail Send!!",
+        });
+      }
+    }
+  );
+});
 
 app.post("/api/v1/home-repair-evolution", async (req, res) => {
-    await transporter.sendMail(
-        {
-            from: "dummy.parth55@gmail.com", // sender address
-            to: "dummy.parth55@gmail.com", // list of receivers
-            subject: "Home REpair Evoluton", // Subject line
+  await transporter.sendMail(
+    {
+      from: "utsavvasoya99@gmail.com", // Add Mail Hear
+      to: "utsavvasoya99@gmail.com", // Add Mail Hear
+      subject: "Home Repair Evolution", // Subject line
 
-            text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
+      text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
 
-            html:
-                `<p> 
+      html: `<p> 
             <hr>
             Name: ${req.body.name}
             <hr> 
@@ -133,7 +166,14 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
             <hr>
             Phone Number: ${req.body.phoneNumber} 
             <hr> 
-            Address:${req.body.street + ", " + req.body.city + ", " + req.body.state + ", " + req.body.zipCode}
+            Address:${req.body.street +
+        ", " +
+        req.body.city +
+        ", " +
+        req.body.state +
+        ", " +
+        req.body.zipCode
+        }
             <hr>
             <table style="
                 width:"80vw"; 
@@ -151,8 +191,10 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>Drainage : ${req.body.Yard_Drainage}</td>
                 </tr>
                 <tr>
-                    <td>Deck, porch, patio: ${req.body.Exterior_DeckPorchPatio}</td>
-                    <td>Gutters and downspouts: ${req.body.Exterior_DeckPorchPatio}</td>
+                    <td>Deck, porch, patio: ${req.body.Exterior_DeckPorchPatio
+        }</td>
+                    <td>Gutters and downspouts: ${req.body.Exterior_DeckPorchPatio
+        }</td>
                     <td>Fences and gates: ${req.body.Yard_FencesAndGates}</td>
                 </tr>
                 <tr>
@@ -176,7 +218,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>Swimming pool : ${req.body.Yard_SwimmingPool}</td>
                 </tr>
                 <tr>
-                    <td>Garbage receptacle: ${req.body.Exterior_GarbageReceptacle}</td>
+                    <td>Garbage receptacle: ${req.body.Exterior_GarbageReceptacle
+        }</td>
                     <th>Garage</td>
                     <td>Trees, shrubs and lawn dead, dying or bug infested?</td>
                 </tr>
@@ -203,10 +246,12 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 </tr><tr>
                     <td>Parking: ${req.body.Exterior_Parking}</td>
                     <td>Storage: ${req.body.Garage_Storage}</td>
-                    <td>Carbon Monoxide Detector:${req.body.Fireplace_CarbonMonoxideDetector}</td>
+                    <td>Carbon Monoxide Detector:${req.body.Fireplace_CarbonMonoxideDetector
+        }</td>
 
                 </tr><tr>
-                    <td>Recycling receptacle: ${req.body.Exterior_RecyclingReceptacle}</td>
+                    <td>Recycling receptacle: ${req.body.Exterior_RecyclingReceptacle
+        }</td>
                     <td>Walls: ${req.body.Garage_Walls}</td>
                     <td>Mantle: ${req.body.Fireplace_Mantle}</td>
 
@@ -218,7 +263,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
 
                 </tr>
                 <tr>
-                    <td>Siding (brick/stone/cement): ${req.body.Exterior_Siding_brick_stone_cement}</td>
+                    <td>Siding (brick/stone/cement): ${req.body.Exterior_Siding_brick_stone_cement
+        }</td>
                     <td>Is the garage door opener operating properly?</td>
                     <td>Tiles: ${req.body.Fireplace_Tiles}</td>
 
@@ -261,9 +307,11 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>Baseboards: ${req.body.Kitchen_Baseboards}</td>
                 </tr>
                 <tr>
-                    <td>Cabinets, shelves, & drawers: ${req.body.Bathrooms_CabinetsShelvesDrawers}</td>
+                    <td>Cabinets, shelves, & drawers: ${req.body.Bathrooms_CabinetsShelvesDrawers
+        }</td>
                     <td>Ceiling: ${req.body.Bedrooms_Ceiling}</td>
-                    <td>Cabinets and drawers: ${req.body.Kitchen_CabinetsAndDrawers}</td>
+                    <td>Cabinets and drawers: ${req.body.Kitchen_CabinetsAndDrawers
+        }</td>
                 </tr>
                 <tr>
                     <td>Ceiling: ${req.body.Bathrooms_Ceiling}</td>
@@ -282,7 +330,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 </tr>
                 <tr>
                     <td>Floors: ${req.body.Bathrooms_Floors}</td>
-                    <td>Outlets and switches: ${req.body.Bedrooms_OutletsAndSwitches}</td>
+                    <td>Outlets and switches: ${req.body.Bedrooms_OutletsAndSwitches
+        }</td>
                     <td>Floors: ${req.body.Kitchen_Floors}</td>
                 </tr>
                 <tr>
@@ -301,7 +350,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>CGFCI outlet: ${req.body.Kitchen_GFCIOutlet}</td>
                 </tr>
                 <tr>
-                    <td>Outlets and switches: ${req.body.Bathrooms_OutletsAndSwitches}</td>
+                    <td>Outlets and switches: ${req.body.Bathrooms_OutletsAndSwitches
+        }</td>
                     <td>Check ceilings for sloping and/or water damage. Are floors weak in places? Damaged windows or window screens?
                     </td>
                     <td>Lights: ${req.body.Kitchen_Lights}</td>
@@ -309,7 +359,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 <tr>
                     <td>Notes: ${req.body.BedroomsNote}</td>
                     <td><hr /></td>
-                    <td>Outlets and switches: ${req.body.Kitchen_OutletsAndSwitches}</td>
+                    <td>Outlets and switches: ${req.body.Kitchen_OutletsAndSwitches
+        }</td>
                 </tr>
                 <tr>
                     <td>Toilet: ${req.body.Bathrooms_Toilet}</td>
@@ -393,7 +444,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>Doors: ${req.body.Den_Doors}</td>
                 </tr>
                 <tr>
-                    <td>Outlets and switches: ${req.body.DiningRoom_OutletsAndSwitches}</td>
+                    <td>Outlets and switches: ${req.body.DiningRoom_OutletsAndSwitches
+        }</td>
                     <td>Floors: ${req.body.LivingRoom_Floors}</td>
                     <td>Floors: ${req.body.Den_Floors}</td>
                 </tr>
@@ -404,8 +456,10 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 </tr>
                 <tr>
                     <td>Walls: ${req.body.DiningRoom_Walls}</td>
-                    <td>Outlets and switches: ${req.body.LivingRoom_OutletsAndSwitches}</td>
-                    <td>Outlets and switches: ${req.body.Den_OutletsAndSwitches}</td>
+                    <td>Outlets and switches: ${req.body.LivingRoom_OutletsAndSwitches
+        }</td>
+                    <td>Outlets and switches: ${req.body.Den_OutletsAndSwitches
+        }</td>
                 </tr>
                 <tr>
                     <td>Wall damage? Sloping ceiling? Weak floors?</td>
@@ -433,7 +487,11 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <td>Notes: ${req.body.DenNote}</td>
                 </tr>
            
-            <hr />
+                <tr>
+                    <td><hr /></td>
+                    <td><hr /></td>
+                    <td><hr /></td>
+                </tr>
             
                 <tr>
                     <th>Basement</th>
@@ -443,12 +501,14 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 <tr>
                     <td>Baseboards: ${req.body.Basement_Baseboards}</td>
                     <td>Baseboards: ${req.body.Hallways_Baseboards}</td>
-                    <td>Air conditioning: ${req.body.Utilities_AirConditioning}</td>
+                    <td>Air conditioning: ${req.body.Utilities_AirConditioning
+        }</td>
                 </tr>
                 <tr>
                     <td>Ceiling: ${req.body.Basement_Ceiling}</td>
                     <td>Closets: ${req.body.Hallways_Closets}</td>
-                    <td>Circuit breakers: ${req.body.Utilities_CircuitBDrainagereakers}</td>
+                    <td>Circuit breakers: ${req.body.Utilities_CircuitBDrainagereakers
+        }</td>
                 </tr>
                 <tr>
                     <td>Doors: ${req.body.Basement_Doors}</td>
@@ -463,15 +523,19 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 <tr>
                     <td>Foundation: ${req.body.Basement_Foundation}</td>
                     <td>Ceiling: ${req.body.Hallways_Ceiling}</td>
-                    <td>Hot water heater: ${req.body.Utilities_HotWaterHeater}</td>
+                    <td>Hot water heater: ${req.body.Utilities_HotWaterHeater
+        }</td>
                 </tr>
                 <tr>
                     <td>Lights: ${req.body.Basement_Lights}</td>
-                    <td>Outlets and switches: ${req.body.Hallways_OutletsAndSwitches}</td>
-                    <td>Main electrical panel: ${req.body.Utilities_MainElectricalPanel}</td>
+                    <td>Outlets and switches: ${req.body.Hallways_OutletsAndSwitches
+        }</td>
+                    <td>Main electrical panel: ${req.body.Utilities_MainElectricalPanel
+        }</td>
                 </tr>
                 <tr>
-                    <td>Outlets and switches: ${req.body.Basement_OutletsandSwitches}</td>
+                    <td>Outlets and switches: ${req.body.Basement_OutletsandSwitches
+        }</td>
                     <td>Skylights: ${req.body.Hallways_Skylights}</td>
                     <td>Water pressure: ${req.body.Utilities_WaterPressure}</td>
                 </tr>
@@ -502,7 +566,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                     <th>Other</th>
                 </tr>
                 <tr>
-                    <td>Washer and dryer: ${req.body.Basement_WasherAndDryer}</td>
+                    <td>Washer and dryer: ${req.body.Basement_WasherAndDryer
+        }</td>
                     <td>Insulation: ${req.body.Attic_Insulation}</td>
                     <td>Asbestos: ${req.body.Other_Asbestos}</td>
                 </tr>
@@ -514,7 +579,8 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
                 <tr>
                     <td>Damp, musty or moldy? Beam damage? Bugs?</td>
                     <td>Ventilation: ${req.body.Attic_Ventilation}</td>
-                    <td>Wood Eating insects: ${req.body.Other_WoodEatingInsects}</td>
+                    <td>Wood Eating insects: ${req.body.Other_WoodEatingInsects
+        }</td>
                 </tr>
                 <tr>
                     <td>Notes: ${req.body.BasementNote}</td>
@@ -530,27 +596,30 @@ app.post("/api/v1/home-repair-evolution", async (req, res) => {
             <hr>
             <br> 
             </p>`, // html body
-        },
-        (err, info) => {
-            if (err) {
-                console.log(err);
-                res.status(500).send({
-                    success: false,
-                    message: "Mail Send Error"
-                })
-            } else {
-                res.status(201).send({
-                    success: true,
-                    message: "Contact Mail Send!!"
-                })
-            };
-
-        })
-})
+    },
+    (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send({
+          success: false,
+          message: "Mail Send Error",
+        });
+      } else {
+        res.status(201).send({
+          success: true,
+          message: "Contact Mail Send!!",
+        });
+      }
+    }
+  );
+});
 
 // ========================================Nodemailer End==========================================
 
-
-app.listen(process.env.PORT, () => {
-    console.log(`Web run At PORT: ${process.env.PORT}`.bgCyan.white);
+app.listen(4000, () => {
+  console.log(`Web run At PORT: ${4000}`.bgCyan.white);
 });
+
+// app.listen(process.env.PORT, () => {
+//   console.log(`Web run At PORT: ${process.env.PORT}`.bgCyan.white);
+// });

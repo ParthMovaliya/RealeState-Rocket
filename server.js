@@ -34,8 +34,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-        user: "utsavvasoya99@gmail.com", //Add Mail Hear
-        pass: "qjvronmfrxlcavqq", //Add Password Hear
+        user: "dummy.parth55@gmail.com", //Add Mail Hear
+        pass: "odeacnzjwrujsvno", //Add Password Hear
     },
 });
 
@@ -46,13 +46,12 @@ app.get("/test", (req, res) => {
 app.post("/api/v1/get-a-cash-offer", async (req, res) => {
     await transporter.sendMail(
         {
-            from: "utsavvasoya99@gmail.com", // Add Mail Hear
-            to: "utsavvasoya99@gmail.com", // Add Mail Hear
+            from: "dummy.parth55@gmail.com", // Add Mail Hear
+            to: `${req.body.email}`, // Add Mail Hear
             subject: `Get A Cash Offer! ✔ ${req.body.firstName + " " + req.body.lastName
                 }`, // Subject line
 
-            text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email
-                } Phone Number: ${req.body.phoneNumber} Address:${req.body.street +
+            text: `Name: ${req.body.firstName + " " + req.body.lastName} email:${req.body.email} Phone Number: ${req.body.phoneNumber} Address:${req.body.street +
                 ", " +
                 req.body.city +
                 ", " +
@@ -111,8 +110,8 @@ app.post("/api/v1/get-a-cash-offer", async (req, res) => {
 app.post("/api/v1/contact", async (req, res) => {
     await transporter.sendMail(
         {
-            from: "utsavvasoya99@gmail.com", // Add Mail Hear
-            to: "utsavvasoya99@gmail.com", // Add Mail Hear
+            from: "dummy.parth55@gmail.com", // Add Mail Hear
+            to: `${req.body.email}`, // Add Mail Hear
             subject: "Contact Me", // Subject line
 
             text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
@@ -150,8 +149,8 @@ app.post("/api/v1/contact", async (req, res) => {
 app.post("/api/v1/property-analysis", async (req, res) => {
     await transporter.sendMail(
         {
-            from: "utsavvasoya99@gmail.com", // Add Mail Hear
-            to: "utsavvasoya99@gmail.com", // Add Mail Hear
+            from: "dummy.parth55@gmail.com", // Add Mail Hear
+            to: `${req.body.email}`, // Add Mail Hear
             subject: "Home Repair Evolution", // Subject line
 
             text: `Name: ${req.body.name} email:${req.body.email} Phone Number: ${req.body.phoneNumber} messaage: ${req.body.message}`, // plain text body
